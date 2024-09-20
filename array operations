@@ -1,0 +1,74 @@
+class operation_on_array:
+# Traverse − print all the array elements one by one.
+    def traverser(self,array,n):
+        for i in range(n):
+            print(f'[{i+1}] =',array[i])
+# Insertion − Adds an element at the given index.        
+    def Insertion(self,array,n):
+        key=int(input('Enter a key :'))
+        value=int(input("Enter a value:"))
+        
+        if key<n:
+            for i in range(n):
+                if key==i:
+                    array[key]=value
+            print('New array',array)
+                    
+        else:
+            print("Wrong value")
+# Deletion − Deletes an element at the given index
+
+    def DeletionOperation(self,array,n):
+        index=int(input('Enter a index which you want to delate:'))
+        if index < 0 or index >= len(array):
+            print("Index out of range.")
+        # return array
+        new_array = []
+        for i in range(len(array)):
+           if i != index:  # Exclude the element at the specified index
+                new_array.append(array[i])
+
+        return new_array
+
+# Search − Searches an element using the given index or by the value
+    def Search_Element(self,array,n):
+        Element=int(input("Enter a element which you want to search:"))
+        for i in range(n):
+            if array[i]==Element:
+                print(f'Element is present at index {i+1}')
+            
+# Update − Updates an element at the given index.
+    def Update_element(self,array ,n ):
+        update_index=int(input("Enter a index number which you want to update"))
+        for i in range(n):
+            if i==update_index:
+                value=int(input(f"Enter a value for index {i}"))
+                array[i]=value
+                print("New array",array)
+        # print("Not found")
+            
+    
+array=[]
+n=int(input("Enter a number of array:"))
+
+for i in range(n):
+    value=int(input(f'Enter a value of {i+1}:'))
+    array.append(value)   
+print(f"original array is {array}")
+
+traverse=operation_on_array()
+traverse.traverser(array,n)
+
+Insertion=operation_on_array()
+Insertion.Insertion(array,n)
+
+
+DeletionOperation=operation_on_array()
+DeletionOperation.DeletionOperation(array,n)
+
+Search_Element=operation_on_array()
+Search_Element.Search_Element(array,n)
+
+
+update_element=operation_on_array()
+update_element.Update_element(array,n)
